@@ -20,5 +20,10 @@ include_directories(libs/nanogui/include)
 include_directories(${NANOGUI_EXTRA_INCS})
 add_definitions(${NANOGUI_EXTRA_DEFS})
 
-add_executable(${PROJECT_NAME} main.cpp)
+set(INCLUDES_DIR "includes")
+include_directories(${INCLUDES_DIR})
+
+add_executable(${PROJECT_NAME} main.cpp
+                ${INCLUDES_DIR}/custom/tabwidget/tabwidget.cpp
+                ${INCLUDES_DIR}/custom/tabheader/tabheader.cpp)
 target_link_libraries(${PROJECT_NAME} nanogui ${NANOGUI_EXTRA_LIBS})
