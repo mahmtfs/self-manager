@@ -14,7 +14,12 @@
 
 #pragma once
 
-#include <nanogui/widget.h>
+//#include <nanogui/widget.h>
+#include <custom/widget/widget.h>
+#include <nanogui/entypo.h>
+#include <nanogui/button.h>
+#include <nanogui/toolbutton.h>
+#include <custom/config/config.h>
 #include <vector>
 #include <string>
 #include <functional>
@@ -28,9 +33,9 @@ NAMESPACE_BEGIN(custom)
  *
  * \brief A Tab navigable widget.
  */
-class TabHeader : public nanogui::Widget {
+class TabHeader : public Widget {
 public:
-    TabHeader(nanogui::Widget *parent, const std::string &font = "sans-bold");
+    TabHeader(Widget *parent, const std::string &font = "sans-bold");
 
     void setFont(const std::string& font) { mFont = font; }
     const std::string& font() const { return mFont; }
@@ -99,6 +104,8 @@ public:
 
     virtual void draw(NVGcontext* ctx) override;
 
+    void updateCloseButtons();
+
 private:
     /**
      * \class TabButton tabheader.h
@@ -115,6 +122,8 @@ private:
         const std::string& label() const { return mLabel; }
         void setSize(const nanogui::Vector2i& size) { mSize = size; }
         const nanogui::Vector2i& size() const { return mSize; }
+        void setCloseButton(nanogui::Button* button) { mCloseButton = button; }
+        nanogui::Button* closeButton(){ return mCloseButton; }
 
         nanogui::Vector2i preferredSize(NVGcontext* ctx) const;
         void calculateVisibleString(NVGcontext* ctx);
@@ -123,8 +132,9 @@ private:
         void drawInactiveBorderAt(NVGcontext * ctx, const nanogui::Vector2i& position, float offset, const nanogui::Color& color);
 
     private:
-        TabHeader* mHeader;
+        TabHeader *mHeader;
         std::string mLabel;
+        nanogui::Button *mCloseButton;
         nanogui::Vector2i mSize;
 
         /**
@@ -172,6 +182,7 @@ private:
     int mVisibleEnd = 0;
     int mActiveTab = 0;
     bool mOverflowing = false;
+    Config *cfg;
 
     std::string mFont;
 public:

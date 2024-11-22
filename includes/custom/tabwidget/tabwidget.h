@@ -16,7 +16,8 @@
 #pragma once
 
 #include <custom/tabheader/tabheader.h>
-#include <nanogui/widget.h>
+//#include <nanogui/widget.h>
+#include <custom/widget/widget.h>
 #include <functional>
 
 NAMESPACE_BEGIN(custom)

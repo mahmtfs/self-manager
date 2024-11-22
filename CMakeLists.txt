@@ -25,5 +25,7 @@ include_directories(${INCLUDES_DIR})
 
 add_executable(${PROJECT_NAME} main.cpp
                 ${INCLUDES_DIR}/custom/tabwidget/tabwidget.cpp
-                ${INCLUDES_DIR}/custom/tabheader/tabheader.cpp)
+                ${INCLUDES_DIR}/custom/tabheader/tabheader.cpp
+                ${INCLUDES_DIR}/custom/tabmanager/tabmanager.cpp
+                ${INCLUDES_DIR}/custom/widget/widget.cpp)
 target_link_libraries(${PROJECT_NAME} nanogui ${NANOGUI_EXTRA_LIBS})
