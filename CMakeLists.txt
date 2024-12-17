@@ -24,5 +24,5 @@ set(INCLUDES_DIR "includes")
 include_directories(${INCLUDES_DIR})
 
 add_executable(${PROJECT_NAME} main.cpp
-               ${INCLUDES_DIR}/custom/tabgenerator/tabgenerator.cpp)
+               ${INCLUDES_DIR}/tabgenerator/tabgenerator.cpp)
 target_link_libraries(${PROJECT_NAME} nanogui ${NANOGUI_EXTRA_LIBS})

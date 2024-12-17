@@ -1,12 +1,13 @@
 #include <nanogui/nanogui.h>
 #include <nanogui/tabwidget.h>
-#include <custom/tabgenerator/tabgenerator.h>
+#include <tabgenerator/tabgenerator.h>
 
 
 int main(){
     nanogui::Vector2i screenSize = nanogui::Vector2i(700, 500);
     nanogui::init();
     {
+    //glfwWindowHint(GLFW_TITLEBAR, false);
     //glfwGetCurrentContext()
     nanogui::Screen *screen = new nanogui::Screen(screenSize, "Self-Manager");
     nanogui::TabWidget* tabWidget = screen->add<nanogui::TabWidget>();
