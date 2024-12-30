@@ -1,4 +1,4 @@
-#include <custom/tabgenerator/tabgenerator.h>
+#include <tabgenerator/tabgenerator.h>
 #include <nanogui/widget.h>
 #include <nanogui/layout.h>
 #include <nanogui/label.h>
